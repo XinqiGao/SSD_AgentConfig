@@ -175,6 +175,26 @@ def add_default_args(parser):
         help="Train using collective reward instead of individual reward.",
     )
 
+    #Inequity Aversion Parameter & Model #
+    parser.add_argument(
+    "--inequity_averse_reward",
+    action="store_true",  # This is the proper way to handle boolean flags
+    default=False,
+    help="Enable inequity averse reward",
+    )
+    parser.add_argument(
+        "--alpha",
+        type=float,
+        default=0.0,
+        help="Disadvantageous inequity aversion weight",
+    )
+    parser.add_argument(
+        "--beta",
+        type=float,
+        default=0.0,
+        help="Advantageous inequity aversion weight",
+    )
+
     # MOA Parameters
     parser.add_argument(
         "--moa_loss_weight",
