@@ -38,7 +38,13 @@ def build_experiment_config_dict(args):
     :return: An Experiment config dict.
     """
     env_creator = get_env_creator(
-        args.env, args.num_agents, args.use_collective_reward, args.num_switches
+        args.env,
+        args.num_agents,
+        args.use_collective_reward,
+        args.inequity_averse_reward,  # Add this for passing inequity aversse reward
+        args.alpha,  # Add this
+        args.beta,  # Add this
+        args.num_switches
     )
     env_name = args.env + "_env"
     register_env(env_name, env_creator)

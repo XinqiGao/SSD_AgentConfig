@@ -116,7 +116,7 @@ def build_experiment_config_dict(args):
     config["env_config"]["func_create"] = env_creator
     config["env_config"]["env_name"] = env_name
     if env_name == "switch_env":
-        config["env_configenv_config"]["num_switches"] = args.num_switches
+        config["env_config"]["num_switches"] = args.num_switches
 
     conv_filters = [[6, [3, 3], 1]]
     fcnet_hiddens = [32, 32]
