@@ -38,13 +38,7 @@ def build_experiment_config_dict(args):
     :return: An Experiment config dict.
     """
     env_creator = get_env_creator(
-        args.env,
-        args.num_agents,
-        args.use_collective_reward,
-        args.inequity_averse_reward,  # Add this for passing inequity aversse reward
-        args.alpha,  # Add this
-        args.beta,  # Add this
-        args.num_switches
+        args.env, args.num_agents, args.use_collective_reward, args.num_switches
     )
     env_name = args.env + "_env"
     register_env(env_name, env_creator)
@@ -116,7 +110,7 @@ def build_experiment_config_dict(args):
     config["env_config"]["func_create"] = env_creator
     config["env_config"]["env_name"] = env_name
     if env_name == "switch_env":
-        config["env_configenv_config"]["num_switches"] = args.num_switches
+        config["env_config"]["num_switches"] = args.num_switches
 
     conv_filters = [[6, [3, 3], 1]]
     fcnet_hiddens = [32, 32]
